@@ -9,7 +9,7 @@ It generates an ASCII directory tree, bundles file contents with syntax highligh
 ## 🌟 Key Features
 
 - **Zero External Dependencies:** Built with standard Python 3.10+ libraries.
-- **Global CLI Access:** Run `bundler` or `context-bundler` from any folder on your machine.
+- **Conflict-Free Global CLI:** Run `cbundle`, `code-bundler`, or `context-bundler` from any folder without Ruby Bundler name collisions.
 - **Token Minifier (`-m`):** Strips comments, docstrings, and blank lines while preserving indentation and string literals (~25–40% token savings).
 - **Extension Filtering (`-e`):** Extract only specific files (e.g., `-e ts tsx` or `-e go sql`).
 - **Tree Visualization:** Automatically builds an ASCII directory hierarchy at the top of the bundle.
@@ -26,8 +26,8 @@ Clone the repository and install it in editable/global mode:
 git clone [https://github.com/burakkosmen/code-context-bundler.git](https://github.com/burakkosmen/code-context-bundler.git)
 cd code-context-bundler
 
-# 2. Install globally in editable mode (recommended for developers)
-pip install -e .
+# 2. Install globally (macOS / Linux)
+python3 -m pip install -e . --break-system-packages
 
 # Or install isolated via pipx
 pipx install .
@@ -37,32 +37,34 @@ pipx install .
 
 ## 🚀 Usage
 
-Once installed, navigate to any project folder on your system:
+Once installed, navigate to any project folder on your system and use **`cbundle`** (or `code-bundler`):
 
 ### 1. Basic Bundle (Full Project)
 ```bash
-bundler
+cbundle
 ```
 *Outputs: `project_bundle.md` in the current directory.*
 
 ### 2. Filter by File Extensions
 ```bash
-bundler -e ts tsx vue
+cbundle -e ts tsx vue
 ```
 
 ### 3. Minify to Save Tokens
 ```bash
-bundler -e go sql -m -o backend_clean.md
+cbundle -e go sql -m -o backend_clean.md
 ```
 
 ### 4. Target a Specific Directory
 ```bash
-bundler ./src -e ts tsx -m -o frontend_context.md
+cbundle ./src -e ts tsx -m -o frontend_context.md
 ```
 
 ---
 
 ## ⚙️ CLI Reference
+
+All commands (`cbundle`, `code-bundler`, `context-bundler`) accept the same options:
 
 | Argument | Flag | Description | Default |
 | :--- | :--- | :--- | :--- |
