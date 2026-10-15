@@ -1,0 +1,4 @@
+[console_scripts]
+cbundle = code_bundler.cli:main
+code-bundler = code_bundler.cli:main
+context-bundler = code_bundler.cli:main

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "code-context-bundler"
+version = "0.1.0"
+description = "A lightweight CLI tool to bundle codebases into an LLM-optimized Markdown format."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Burak Kösmen" }
+]
+keywords = ["llm", "cli", "bundler", "context", "prompt-engineering", "claude", "gemini", "gpt"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+[project.scripts]
+code-bundler = "code_bundler.cli:main"
+context-bundler = "code_bundler.cli:main"
+cbundle = "code_bundler.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
